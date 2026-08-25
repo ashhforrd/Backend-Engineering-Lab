@@ -22,3 +22,7 @@ func (s State) String() string {
 		return fmt.Sprintf("UNKNOWN(%d)", s)
 	}
 }
+
+func (s State) MarshalJSON() ([]byte, error) {
+	return []byte(fmt.Sprintf("%q", s.String())), nil
+}

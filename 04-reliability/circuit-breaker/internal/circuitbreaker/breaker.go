@@ -56,6 +56,7 @@ func (b *Breaker) transitionToHalfOpen() {
 
 func (b *Breaker) transitionToClosed() {
 	b.state = StateClosed
+	b.openedAt = time.Time{}
 
 	b.consecutiveFailures = 0
 	b.halfOpenInFlight = 0
