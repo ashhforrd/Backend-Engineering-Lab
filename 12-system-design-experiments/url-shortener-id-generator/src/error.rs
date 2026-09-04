@@ -13,4 +13,10 @@ pub enum GeneratorError {
 
     #[error("system clock could not produce a valid Unix timestamp")]
     InvalidSystemTime,
+
+    #[error("generator state lock is unavailable")]
+    StateUnavailable,
+
+    #[error("timestamp has exceeded the allocated 41 bits")]
+    TimestampExhausted,
 }
