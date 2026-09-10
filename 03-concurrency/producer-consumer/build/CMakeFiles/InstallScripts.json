@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/macbookpro/Documents/projects/backend-engineering-lab/03-concurrency/producer-consumer/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

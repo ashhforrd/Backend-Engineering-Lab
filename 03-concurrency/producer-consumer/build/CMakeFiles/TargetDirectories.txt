@@ -1,0 +1,5 @@
+/Users/macbookpro/Documents/projects/backend-engineering-lab/03-concurrency/producer-consumer/build/CMakeFiles/producer_consumer.dir
+/Users/macbookpro/Documents/projects/backend-engineering-lab/03-concurrency/producer-consumer/build/CMakeFiles/bounded_queue_test.dir
+/Users/macbookpro/Documents/projects/backend-engineering-lab/03-concurrency/producer-consumer/build/CMakeFiles/test.dir
+/Users/macbookpro/Documents/projects/backend-engineering-lab/03-concurrency/producer-consumer/build/CMakeFiles/edit_cache.dir
+/Users/macbookpro/Documents/projects/backend-engineering-lab/03-concurrency/producer-consumer/build/CMakeFiles/rebuild_cache.dir

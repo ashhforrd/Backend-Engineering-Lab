@@ -1,0 +1,18 @@
+Start testing: Sep 10 10:24 WIB
+----------------------------------------------------------
+1/1 Testing: bounded_queue_test
+1/1 Test: bounded_queue_test
+Command: "/Users/macbookpro/Documents/projects/backend-engineering-lab/03-concurrency/producer-consumer/build/bounded_queue_test"
+Directory: /Users/macbookpro/Documents/projects/backend-engineering-lab/03-concurrency/producer-consumer/build
+"bounded_queue_test" start time: Sep 10 10:24 WIB
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.38 sec
+----------------------------------------------------------
+Test Passed.
+"bounded_queue_test" end time: Sep 10 10:24 WIB
+"bounded_queue_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 10 10:24 WIB

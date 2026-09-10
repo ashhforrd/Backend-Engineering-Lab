@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/producer_consumer.dir/src/main.cpp.o CMakeFiles/producer_consumer.dir/src/producer.cpp.o CMakeFiles/producer_consumer.dir/src/consumer.cpp.o -o producer_consumer
