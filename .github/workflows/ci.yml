@@ -1,0 +1,102 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  go:
+    name: Go · ${{ matrix.project }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - 01-api-and-http/idempotency-key-api
+          - 01-api-and-http/api-versioning
+          - 01-api-and-http/api-rate-limit-headers
+          - 03-concurrency/bounded-worker-pool
+          - 04-reliability/retry-with-exponential-backoff
+          - 04-reliability/circuit-breaker
+          - 05-caching-and-performance/cache-aside
+          - 06-async-processing/basic-job-queue
+          - 07-distributed-systems/distributed-lock
+          - 08-infrastructure/graceful-http-server
+          - 09-observability/structured-logging
+          - 10-testing/table-driven-tests
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: ${{ matrix.project }}/go.mod
+          cache: false
+      - name: Test
+        working-directory: ${{ matrix.project }}
+        run: go test -race ./...
+
+  java:
+    name: Java · ${{ matrix.project }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - 02-databases/optimistic-locking-inventory
+          - 02-databases/pessimistic-locking-reservation
+          - 02-databases/transaction-isolation-lab
+          - 02-databases/db-index-benchmark
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+          cache-dependency-path: ${{ matrix.project }}/pom.xml
+      - name: Test
+        working-directory: ${{ matrix.project }}
+        run: mvn --batch-mode test
+
+  rust:
+    name: Rust · ${{ matrix.project }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - 11-security/password-hashing
+          - 12-system-design-experiments/url-shortener-id-generator
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - name: Format
+        working-directory: ${{ matrix.project }}
+        run: cargo fmt --check
+      - name: Lint
+        working-directory: ${{ matrix.project }}
+        run: cargo clippy --all-targets -- -D warnings
+      - name: Test
+        working-directory: ${{ matrix.project }}
+        run: cargo test
+
+  cpp:
+    name: C++ · producer-consumer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Configure
+        working-directory: 03-concurrency/producer-consumer
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+      - name: Build
+        working-directory: 03-concurrency/producer-consumer
+        run: cmake --build build --parallel
+      - name: Test
+        working-directory: 03-concurrency/producer-consumer
+        run: ctest --test-dir build --output-on-failure
