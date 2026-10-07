@@ -32,6 +32,7 @@ when its model makes the engineering concept easier to observe.
 | Reliability | [Circuit Breaker](04-reliability/circuit-breaker) | Go | Dependency failure isolation |
 | Caching | [Cache Aside](05-caching-and-performance/cache-aside) | Go | Cache consistency and invalidation |
 | Async Processing | [Basic Job Queue](06-async-processing/basic-job-queue) | Go | Producer/consumer job execution |
+| Async Processing | [Transactional Outbox](06-async-processing/transactional-outbox) | Java | Atomic event persistence and reliable publishing |
 | Distributed Systems | [Distributed Lock](07-distributed-systems/distributed-lock) | Go | Cross-process coordination and leases |
 | Infrastructure | [Graceful HTTP Server](08-infrastructure/graceful-http-server) | Go | Draining and signal handling |
 | Observability | [Structured Logging](09-observability/structured-logging) | Go | Machine-searchable contextual logs |
